@@ -57,13 +57,19 @@ int main()
     int z = 250; */
 
     Point2D p1;
+
+    Point2D* p1Pointer = &p1;
     // p1.x = -100;
     // p1.y = -200;
     // cout << p1.x << "; " << p1.y << endl;
     try {
         p1.setX(100);
-        p1.setY(-200);
-        cout << p1.getX() << "; " << p1.getY() << endl;
+        p1.setY(200);
+        p1.setColor("green");
+        // p1.setColor(nullptr); // NULL
+        // cout << p1.getX() << "; " << p1.getY() << endl;
+        // cout << (* p1Pointer).getX() << "; " << (* p1Pointer).getY() << endl;
+        cout << p1Pointer->getX() << "; " << p1Pointer->getY() << "; " << p1Pointer->getColor() << endl;
     }
     catch (exception& ex)
     {
