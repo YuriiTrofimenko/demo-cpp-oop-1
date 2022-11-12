@@ -1,4 +1,5 @@
 #include <exception>
+#include <string>
 
 class Point2D {
     unsigned int x;// = 0;
@@ -6,6 +7,7 @@ class Point2D {
     char* color;
 public:
     Point2D();
+    Point2D(int x, int y, const char* color);
     ~Point2D();
     void setX(int x);
     unsigned int getX() {
@@ -20,5 +22,5 @@ public:
         return this->color;
     }
 private:
-    void validate(int value);
+    void validate(int value, char fieldName);
 };

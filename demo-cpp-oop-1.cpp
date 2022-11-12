@@ -56,20 +56,26 @@ int main()
     int y = 200;
     int z = 250; */
 
-    Point2D p1;
+    
 
-    Point2D* p1Pointer = &p1;
+    // Point2D* p1Pointer = &p1;
     // p1.x = -100;
     // p1.y = -200;
     // cout << p1.x << "; " << p1.y << endl;
     try {
+        Point2D p1;
+        Point2D p2;
+        Point2D p3(-300, 400, "red"); // 300, 400, "red" с++ конструктор с параметрами
+
         p1.setX(100);
         p1.setY(200);
         p1.setColor("green");
         // p1.setColor(nullptr); // NULL
-        // cout << p1.getX() << "; " << p1.getY() << endl;
+        cout << p1.getX() << "; " << p1.getY() << "; " << p1.getColor() << endl;
+        cout << p2.getX() << "; " << p2.getY() << "; " << p2.getColor() << endl;
+        cout << p3.getX() << "; " << p3.getY() << "; " << p3.getColor() << endl;
         // cout << (* p1Pointer).getX() << "; " << (* p1Pointer).getY() << endl;
-        cout << p1Pointer->getX() << "; " << p1Pointer->getY() << "; " << p1Pointer->getColor() << endl;
+        // cout << p1Pointer->getX() << "; " << p1Pointer->getY() << "; " << p1Pointer->getColor() << endl;
     }
     catch (exception& ex)
     {
