@@ -65,7 +65,7 @@ int main()
     try {
         Point2D p1;
         Point2D p2;
-        Point2D p3(-300, 400, "red"); // 300, 400, "red" с++ конструктор с параметрами
+        Point2D p3(300, -400, "red"); // 300, 400, "red" с++ конструктор с параметрами
 
         p1.setX(100);
         p1.setY(200);
@@ -81,4 +81,5 @@ int main()
     {
         cout << ex.what() << endl;
     }
+
 }
