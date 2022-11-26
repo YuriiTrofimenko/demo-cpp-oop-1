@@ -6,6 +6,7 @@ using namespace std;
 Point2D::Point2D() {
     this->setX(0);
     this->setY(0);
+    this->color = new char[25];
     this->setColor("black");
 }
 
@@ -13,7 +14,16 @@ Point2D::Point2D() {
 Point2D::Point2D(int x, int y, const char* color) {
     this->setX(x);
     this->setY(y);
+    this->color = new char[25];
     this->setColor(color);
+}
+
+Point2D::Point2D(Point2D& p)
+{
+    this->setX(p.getX());
+    this->setY(p.getY());
+    this->color = new char[25];
+    this->setColor(p.getColor());
 }
 
 Point2D::~Point2D() {
@@ -82,10 +92,14 @@ void Point2D::setColor(const char* newColor) {
     {
         throw exception("null pointer exception");
     }
-    delete[] color;
+    /* delete[] color;
     int length = strlen(newColor);
     color = new char[length + 1];
     for (int i = 0; i <= length; i++)
+    {
+        color[i] = newColor[i];
+    } */
+    for (int i = 0; i <= strlen(color); i++)
     {
         color[i] = newColor[i];
     }

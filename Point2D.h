@@ -8,6 +8,7 @@ class Point2D {
 public:
     Point2D();
     Point2D(int x, int y, const char* color);
+    Point2D(Point2D& p);
     ~Point2D();
     void setX(int x);
     unsigned int getX() {

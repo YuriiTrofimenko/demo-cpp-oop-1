@@ -65,7 +65,7 @@ int main()
     try {
         Point2D p1;
         Point2D p2;
-        Point2D p3(300, -400, "red"); // 300, 400, "red" с++ конструктор с параметрами
+        Point2D p3(300, 400, "red"); // 300, 400, "red" с++ конструктор с параметрами
 
         p1.setX(100);
         p1.setY(200);
@@ -76,6 +76,22 @@ int main()
         cout << p3.getX() << "; " << p3.getY() << "; " << p3.getColor() << endl;
         // cout << (* p1Pointer).getX() << "; " << (* p1Pointer).getY() << endl;
         // cout << p1Pointer->getX() << "; " << p1Pointer->getY() << "; " << p1Pointer->getColor() << endl;
+
+        // Point2D p4 = p3;
+
+        /* Point2D p4(p3.getX(), p3.getY(), p3.getColor());
+        cout << p4.getX() << "; " << p4.getY() << "; " << p4.getColor() << endl << endl;
+
+        p3.setColor("white");
+        cout << p3.getX() << "; " << p3.getY() << "; " << p3.getColor() << endl;
+        cout << p4.getX() << "; " << p4.getY() << "; " << p4.getColor() << endl; */
+
+        Point2D p4(p3);
+        cout << p4.getX() << "; " << p4.getY() << "; " << p4.getColor() << endl << endl;
+
+        p3.setColor("white");
+        cout << p3.getX() << "; " << p3.getY() << "; " << p3.getColor() << endl;
+        cout << p4.getX() << "; " << p4.getY() << "; " << p4.getColor() << endl;
     }
     catch (exception& ex)
     {
