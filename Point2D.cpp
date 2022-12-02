@@ -2,8 +2,10 @@
 
 using namespace std;
 
-// реализация конструктора без параметров
+unsigned int Point2D::instantinationCount;
+
 Point2D::Point2D() {
+    instantinationCount++;
     this->setX(0);
     this->setY(0);
     this->color = new char[25];

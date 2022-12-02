@@ -2,6 +2,7 @@
 #include <string>
 
 class Point2D {
+    static unsigned int instantinationCount;
     unsigned int x;// = 0;
     unsigned int y;// = 0;
     char* color;
@@ -10,6 +11,10 @@ public:
     Point2D(int x, int y, const char* color);
     Point2D(Point2D& p);
     ~Point2D();
+    static unsigned int getInstantinationCount()
+    {
+        return instantinationCount;
+    }
     void setX(int x);
     unsigned int getX() {
         return this->x;
