@@ -56,7 +56,8 @@ int main()
     int y = 200;
     int z = 250; */
 
-    
+    cout << "Point2D instantination count: " << Point2D::getInstantinationCount() << endl;
+    cout << "Point2D current instance count: " << Point2D::getInstanceCount() << endl;
 
     // Point2D* p1Pointer = &p1;
     // p1.x = -100;
@@ -97,4 +98,6 @@ int main()
     {
         cout << ex.what() << endl;
     }
+    cout << "Point2D instantination count: " << Point2D::getInstantinationCount() << endl;
+    cout << "Point2D current instance count: " << Point2D::getInstanceCount() << endl;
 }

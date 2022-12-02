@@ -2,10 +2,16 @@
 
 using namespace std;
 
-unsigned int Point2D::instantinationCount;
+// определение закрытого статического пол€ класса с €вной инициализацией,
+// без определени€ вне класса - недействительно (компил€ци€ не будет выполнена)
+unsigned int Point2D::instantinationCount = 0;
+unsigned int Point2D::instanceCount = 0;
 
 Point2D::Point2D() {
+    // при по€влении в пам€ти каждого нового объекта типа Point2D
+    // счЄтчики случаев создани€ экземпл€ров и текущего числа экземпл€ров увеличивают свои значени€ на единицу
     instantinationCount++;
+    instanceCount++;
     this->setX(0);
     this->setY(0);
     this->color = new char[25];
@@ -14,6 +20,8 @@ Point2D::Point2D() {
 
 // реализаци€ конструктора со всеми параметрами
 Point2D::Point2D(int x, int y, const char* color) {
+    instantinationCount++;
+    instanceCount++;
     this->setX(x);
     this->setY(y);
     this->color = new char[25];
@@ -22,6 +30,8 @@ Point2D::Point2D(int x, int y, const char* color) {
 
 Point2D::Point2D(Point2D& p)
 {
+    instantinationCount++;
+    instanceCount++;
     this->setX(p.getX());
     this->setY(p.getY());
     this->color = new char[25];
@@ -29,6 +39,8 @@ Point2D::Point2D(Point2D& p)
 }
 
 Point2D::~Point2D() {
+    // при удалении из пам€ти каждого объекта типа Point2D счЄтчик экземпл€ров уменьшает своЄ значение на единицу
+    instanceCount--;
     delete[] color;
 }
 
