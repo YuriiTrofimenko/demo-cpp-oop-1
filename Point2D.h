@@ -1,5 +1,6 @@
 #include <exception>
 #include <string>
+#include <iostream>
 
 class Point2D {
     // объ€вление закрытого статического пол€ класса, без определени€ вне класса - недействительно (компил€ци€ не будет выполнена)
@@ -37,6 +38,7 @@ public:
     const char* getColor() {
         return this->color;
     }
+    Point2D operator+(Point2D& p);
 private:
     // объ€вление закрытой статической функции приращени€ значений счЄтчиков
     static void increaseCounters();

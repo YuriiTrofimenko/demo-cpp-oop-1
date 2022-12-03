@@ -31,6 +31,23 @@ public:
     }
 };
 
+/*
+* Класс модели "неизменяемая точка на плоскости"
+*/
+class ImmutablePoint {
+    unsigned int x;
+    unsigned int y;
+public:
+    ImmutablePoint(unsigned int x, unsigned int y) : x{ x }, y{ y }
+    {
+        // this->x = x;
+        // this->y = y;
+    }
+    void print() const {
+        cout << "x = " << x << "; y = " << y << endl;
+    }
+};
+
 int main()
 {
     // создан объект / object (экземпляр / instance) типа Department,
@@ -96,7 +113,7 @@ int main()
         cout << p3.getX() << "; " << p3.getY() << "; " << p3.getColor() << endl;
         cout << p4.getX() << "; " << p4.getY() << "; " << p4.getColor() << endl;
 
-        
+        Point2D p6 = p1 + p2;
     }
     catch (exception& ex)
     {
@@ -104,4 +121,10 @@ int main()
     }
     cout << "Point2D instantination count: " << Point2D::getInstantinationCount() << endl;
     cout << "Point2D current instance count: " << Point2D::getInstanceCount() << endl;
+
+    const ImmutablePoint ip1{10, 20};
+    ip1.print();
+
+    // cout << "p1's object address: " << &p1 << endl;
+    // cout << "p5's object address: " << &p5 << endl;
 }

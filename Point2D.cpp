@@ -12,6 +12,11 @@ unsigned int Point2D::getInstanceCount() {
     return instanceCount;
 }
 
+Point2D Point2D::operator+(Point2D& p)
+{
+    return Point2D(this->getX() + p.getX(), this->getY() + p.getY(), this->getColor());
+}
+
 // определение (реализаци€) закрытой статической функции приращени€ значений счЄтчиков
 void Point2D::increaseCounters()
 {
@@ -19,14 +24,14 @@ void Point2D::increaseCounters()
     instanceCount++;
 }
 
-Point2D::Point2D() {
+Point2D::Point2D() : Point2D(0, 0, "black") {
     // при по€влении в пам€ти каждого нового объекта типа Point2D
     // счЄтчики случаев создани€ экземпл€ров и текущего числа экземпл€ров увеличивают свои значени€ на единицу
-    increaseCounters();
+    /* increaseCounters();
     this->setX(0);
     this->setY(0);
     this->color = new char[25];
-    this->setColor("black");
+    this->setColor("black"); */
 }
 
 // реализаци€ конструктора со всеми параметрами
@@ -51,6 +56,7 @@ Point2D::~Point2D() {
     // при удалении из пам€ти каждого объекта типа Point2D счЄтчик экземпл€ров уменьшает своЄ значение на единицу
     instanceCount--;
     delete[] color;
+    cout << "deleted object's address: " << this << endl;
 }
 
 void Point2D::validate(int value, char fieldName)
@@ -126,4 +132,9 @@ void Point2D::setColor(const char* newColor) {
     {
         color[i] = newColor[i];
     }
+}
+
+Point2D operator+(const Point2D& p1, const Point2D& p2)
+{
+    // return Point2D(p1->getX() + point2.x, point1.y + point2.y);
 }
