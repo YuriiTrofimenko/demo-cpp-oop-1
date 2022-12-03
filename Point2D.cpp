@@ -7,11 +7,22 @@ using namespace std;
 unsigned int Point2D::instantinationCount = 0;
 unsigned int Point2D::instanceCount = 0;
 
+// определение статической функции класса дл€ получени€ значени€ пол€ instanceCount
+unsigned int Point2D::getInstanceCount() {
+    return instanceCount;
+}
+
+// определение (реализаци€) закрытой статической функции приращени€ значений счЄтчиков
+void Point2D::increaseCounters()
+{
+    instantinationCount++;
+    instanceCount++;
+}
+
 Point2D::Point2D() {
     // при по€влении в пам€ти каждого нового объекта типа Point2D
     // счЄтчики случаев создани€ экземпл€ров и текущего числа экземпл€ров увеличивают свои значени€ на единицу
-    instantinationCount++;
-    instanceCount++;
+    increaseCounters();
     this->setX(0);
     this->setY(0);
     this->color = new char[25];
@@ -20,8 +31,7 @@ Point2D::Point2D() {
 
 // реализаци€ конструктора со всеми параметрами
 Point2D::Point2D(int x, int y, const char* color) {
-    instantinationCount++;
-    instanceCount++;
+    increaseCounters();
     this->setX(x);
     this->setY(y);
     this->color = new char[25];
@@ -30,8 +40,7 @@ Point2D::Point2D(int x, int y, const char* color) {
 
 Point2D::Point2D(Point2D& p)
 {
-    instantinationCount++;
-    instanceCount++;
+    increaseCounters();
     this->setX(p.getX());
     this->setY(p.getY());
     this->color = new char[25];

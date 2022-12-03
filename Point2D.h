@@ -23,11 +23,8 @@ public:
     {
         return instantinationCount;
     }
-    // статическа€ функци€ класса дл€ получени€ значени€ пол€ instanceCount
-    static unsigned int getInstanceCount()
-    {
-        return instanceCount;
-    }
+    // объ€вление статической функции класса дл€ получени€ значени€ пол€ instanceCount
+    static unsigned int getInstanceCount();
     void setX(int x);
     unsigned int getX() {
         return this->x;
@@ -41,6 +38,8 @@ public:
         return this->color;
     }
 private:
+    // объ€вление закрытой статической функции приращени€ значений счЄтчиков
+    static void increaseCounters();
     // объ€вление закрытой функции проверки допустимости устанавливаемого значени€ координаты x или y
     void validate(int value, char fieldName);
 };

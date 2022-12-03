@@ -63,8 +63,10 @@ int main()
     // p1.x = -100;
     // p1.y = -200;
     // cout << p1.x << "; " << p1.y << endl;
+    Point2D p1;
+    Point2D p5;
     try {
-        Point2D p1;
+        
         Point2D p2;
         Point2D p3(300, 400, "red"); // 300, 400, "red" с++ конструктор с параметрами
 
@@ -93,6 +95,8 @@ int main()
         p3.setColor("white");
         cout << p3.getX() << "; " << p3.getY() << "; " << p3.getColor() << endl;
         cout << p4.getX() << "; " << p4.getY() << "; " << p4.getColor() << endl;
+
+        
     }
     catch (exception& ex)
     {
