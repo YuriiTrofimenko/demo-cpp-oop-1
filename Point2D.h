@@ -16,7 +16,7 @@ public:
     // объявления конструкторов класса
     Point2D();
     Point2D(int x, int y, const char* color);
-    Point2D(Point2D& p);
+    Point2D(const Point2D& p);
     // объявление деструктора класса
     ~Point2D();
     // статическая функция класса для получения значения поля instantinationCount
@@ -27,17 +27,24 @@ public:
     // объявление статической функции класса для получения значения поля instanceCount
     static unsigned int getInstanceCount();
     void setX(int x);
-    unsigned int getX() {
+    // функция получения значения поля объекта x,
+    // в заголовке которой при помощи ключевого слова const дано обещание компилятору,
+    // что в её теле не будет кода, способного изменить значение хотя бы одного поля объекта
+    unsigned int getX() const {
         return this->x;
     }
     void setY(int y);
-    unsigned int getY() {
+    // функция получения значения поля объекта y,
+    // в заголовке которой при помощи ключевого слова const дано обещание компилятору,
+    // что в её теле не будет кода, способного изменить значение хотя бы одного поля объекта
+    unsigned int getY() const {
         return this->y;
     }
     void setColor(const char* color);
-    const char* getColor() {
+    const char* getColor() const {
         return this->color;
     }
+    // объявление перегрузки оператора + для объектов класса Point2D
     Point2D operator+(Point2D& p);
 private:
     // объявление закрытой статической функции приращения значений счётчиков

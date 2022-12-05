@@ -12,9 +12,12 @@ unsigned int Point2D::getInstanceCount() {
     return instanceCount;
 }
 
+// определение перегрузки оператора + для объектов класса Point2D
 Point2D Point2D::operator+(Point2D& p)
 {
-    return Point2D(this->getX() + p.getX(), this->getY() + p.getY(), this->getColor());
+    // Point2D result(this->getX() + p.getX(), this->getY() + p.getY(), this->getColor());
+    // return result;
+    return Point2D (this->getX() + p.getX(), this->getY() + p.getY(), this->getColor());
 }
 
 // определение (реализация) закрытой статической функции приращения значений счётчиков
@@ -43,7 +46,7 @@ Point2D::Point2D(int x, int y, const char* color) {
     this->setColor(color);
 }
 
-Point2D::Point2D(Point2D& p)
+Point2D::Point2D(const Point2D& p)
 {
     increaseCounters();
     this->setX(p.getX());
@@ -132,9 +135,4 @@ void Point2D::setColor(const char* newColor) {
     {
         color[i] = newColor[i];
     }
-}
-
-Point2D operator+(const Point2D& p1, const Point2D& p2)
-{
-    // return Point2D(p1->getX() + point2.x, point1.y + point2.y);
 }
