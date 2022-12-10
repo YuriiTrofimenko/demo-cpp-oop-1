@@ -17,8 +17,14 @@ Point2D Point2D::operator+(Point2D& p)
 {
     // Point2D result(this->getX() + p.getX(), this->getY() + p.getY(), this->getColor());
     // return result;
-    return Point2D (this->getX() + p.getX(), this->getY() + p.getY(), this->getColor());
+    return move(Point2D(this->getX() + p.getX(), this->getY() + p.getY(), this->getColor()));
 }
+
+/* Point2D Point2D::operator=(Point2D&& p)
+{
+    p.killColor();
+    return *this;
+} */
 
 // определение (реализация) закрытой статической функции приращения значений счётчиков
 void Point2D::increaseCounters()
@@ -46,13 +52,22 @@ Point2D::Point2D(int x, int y, const char* color) {
     this->setColor(color);
 }
 
-Point2D::Point2D(const Point2D& p)
+/* Point2D::Point2D(const Point2D& p)
 {
+    cout << "Copy constructor was called for new object with address: " << this << endl;
     increaseCounters();
     this->setX(p.getX());
     this->setY(p.getY());
     this->color = new char[25];
     this->setColor(p.getColor());
+} */
+
+Point2D::Point2D(Point2D&& p) : x{ p.getX() }, y{ p.getY() }
+{
+    cout << "Move constructor was called for new object with address: " << this << endl;
+    this->color = new char[25];
+    this->setColor(p.getColor());
+    p.killColor();
 }
 
 Point2D::~Point2D() {

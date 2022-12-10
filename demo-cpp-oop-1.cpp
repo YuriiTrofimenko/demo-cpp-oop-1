@@ -106,18 +106,18 @@ int main()
         cout << p3.getX() << "; " << p3.getY() << "; " << p3.getColor() << endl;
         cout << p4.getX() << "; " << p4.getY() << "; " << p4.getColor() << endl; */
 
-        Point2D p4(p3);
-        cout << p4.getX() << "; " << p4.getY() << "; " << p4.getColor() << endl << endl;
+        // Point2D p4(p3);
+        // cout << p4.getX() << "; " << p4.getY() << "; " << p4.getColor() << endl << endl;
 
         p3.setColor("white");
         cout << p3.getX() << "; " << p3.getY() << "; " << p3.getColor() << endl;
-        cout << p4.getX() << "; " << p4.getY() << "; " << p4.getColor() << endl;
+        // cout << p4.getX() << "; " << p4.getY() << "; " << p4.getColor() << endl;
         // применение перегруженного оператора +
         // (для присвоения результата такой операции у типа Point2D должен быть конструктор копирования,
         // принимающий параметр типа const Point2D& p,
         // чтобы компилятору была обещана неизменяемость объекта, из которого выполняется копирование данных)
-        Point2D p6 = p1 + p2;
-        cout << "P6: " << p6.getX() << "; " << p6.getY() << "; " << p6.getColor() << endl;
+        Point2D p5 = p1 + p2; //  Point2D p6(p1 + p2);
+        cout << "P5: " << &p5 << "; " << p5.getX() << "; " << p5.getY() << "; " << p5.getColor() << endl;
     }
     catch (exception& ex)
     {

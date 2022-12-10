@@ -16,7 +16,10 @@ public:
     // объ€влени€ конструкторов класса
     Point2D();
     Point2D(int x, int y, const char* color);
-    Point2D(const Point2D& p);
+    // объ€вление конструктора копировани€ как удалЄнного
+    Point2D(const Point2D& p) = delete;
+    // объ€вление конструктора перемещени€
+    Point2D(Point2D&& p);
     // объ€вление деструктора класса
     ~Point2D();
     // статическа€ функци€ класса дл€ получени€ значени€ пол€ instantinationCount
@@ -44,8 +47,13 @@ public:
     const char* getColor() const {
         return this->color;
     }
+    // утратить адрес начала массива, хран€щего данные о цвете точки
+    void killColor() {
+        this->color = nullptr;
+    }
     // объ€вление перегрузки оператора + дл€ объектов класса Point2D
     Point2D operator+(Point2D& p);
+    // Point2D operator=(Point2D&& p);
 private:
     // объ€вление закрытой статической функции приращени€ значений счЄтчиков
     static void increaseCounters();
